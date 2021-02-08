@@ -1,0 +1,23 @@
+name: CD
+
+on:
+  push:
+    branches: master
+
+env:
+  BUILD_OUTPUT: 'build/Build/Products/Debug'
+
+jobs:
+
+  build:
+    
+    runs-on: macos-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '5'
+    - name: Build horndis
+      run: |
+        xcodebuild
